@@ -49,6 +49,8 @@
         }
   
         this.$emit('add-task', newTask)
+
+        console.log(newTask)
   
         this.text = ''
         this.day = ''

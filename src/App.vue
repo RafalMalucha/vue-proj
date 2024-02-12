@@ -6,6 +6,7 @@
         :showAddTask="showAddTask"
       />
       <router-view :showAddTask="showAddTask"></router-view>
+      <TaskList/>
     </div>
   </template>
   
@@ -15,7 +16,7 @@
   export default {
     name: 'App',
     components: {
-      Header,
+      Header
     },
     data() {
       return {
