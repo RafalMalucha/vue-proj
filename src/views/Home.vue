@@ -3,8 +3,10 @@
   <Tasks
     @toggle-reminder="toggleReminder"
     @delete-task="deleteTask"
+    @edit-task="editTask"
     :tasks="tasks"
   />
+  <router-link to="/about">About</router-link>
 </template>
 
 <script>
@@ -81,6 +83,15 @@ export default {
 
       return data
     },
+    async editTask(id) {
+      const res = await fetch(`http://localhost:8000/tasks/${id}`)
+
+      const data = await res.json()
+
+      this.task = data
+      console.log(this.task)
+      this.$router.push('/edit/'+id)
+    }
   },
   async created() {
     this.tasks = await this.fetchTasks()
